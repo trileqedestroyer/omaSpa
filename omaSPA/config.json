@@ -1,0 +1,17 @@
+{
+    "port":3000,
+    "host":"localhost",
+    "varastokansio":"jsonvarasto",
+    "kirjastokansio":"kirjasto",
+    "verkkosivut":{
+        "kansio":"sivut",
+        "valikko":"valikko.html",
+        "sivureitit":{
+            "/haeKaikkiSivu": "haeKaikki.html",
+            "/haeYksiSivu": "haeYksi.html",
+            "/lisaysSivu": "lisaa.html",
+            "/paivitysSivu": "paivita.html",
+            "/poistoSivu": "poista.html"
+        }   
+    }
+}

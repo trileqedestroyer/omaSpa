@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "etunimi": "Leila",
+        "sukunimi": "Hökki",
+        "osasto": "ict",
+        "palkka": 3000
+    },
+    {
+        "id": 2,
+        "etunimi": "Matti",
+        "sukunimi": "Puro",
+        "osasto": "hallinto",
+        "palkka": 4000
+    },
+    {
+        "id": 123,
+        "etunimi": "Aapeli",
+        "sukunimi": "Aakkonen",
+        "osasto": "ict",
+        "palkka": 5000
+    },
+    {
+        "id": 222,
+        "etunimi": "asdXXX",
+        "sukunimi": "dfgdfXXX",
+        "osasto": "ghjXXX",
+        "palkka": 45666
+    }
+]
