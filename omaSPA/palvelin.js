@@ -2,48 +2,47 @@
 //noden kirjastot
 const http = require('http');
 const path = require('path');
-
+ 
 //asetukset
 const {
-    port, 
     host, 
     verkkosivut, 
     varastokansio, 
     kirjastokansio} = require('./config.json');
-
+const port = process.env.PORT;
+ 
 //omat kirjastot
 const kirjastopolku=path.join(__dirname,kirjastokansio);
 const {lue} = require(path.join(kirjastopolku,'tiedostokasittelija'));
 const {
     kasittelePostData
 } = require(path.join(kirjastopolku,'postkasittelija'));
-
+ 
 const {
     laheta,
     onJoukossa,
     lahetaJson,
     lahetaStatus
 } = require(path.join(kirjastopolku,'apufunktiot'));
-
+ 
 const Tietovarasto = 
     require(path.join(__dirname,varastokansio,'tietovarastokerros'));
-
+ 
 const tietovarasto= new Tietovarasto();
-
+ 
 const resurssiReitit=['/favicon','/tyylit/','/js/'];
-
+ 
 //polut
 const valikkoPolku = path.join(__dirname,verkkosivut.kansio,verkkosivut.valikko);
-
+ 
 const sivureitit = verkkosivut.sivureitit;
-
-
+ 
 const palvelin = http.createServer(async (req,res)=>{
     const {pathname} = new URL(`http://${host}:${port}${req.url}`);
     const reitti = decodeURIComponent(pathname);
-
+ 
     const metodi = req.method.toUpperCase();
-
+ 
     if(metodi==='GET'){
         try {
             if(reitti==='/'){
@@ -101,8 +100,6 @@ const palvelin = http.createServer(async (req,res)=>{
         lahetaStatus(res, 'Metodi ei ole käytössä',405);
     }
 }); //palvelimen loppu
-
+ 
 palvelin.listen(port,host,
     ()=>console.log(`palvelin ${host}:${port} kuuntelee`));
-
-
